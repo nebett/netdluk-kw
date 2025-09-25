@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Register - Myflick</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <div class="navbar">
+        <div class="brand">Myflick</div>
+        <div class="menu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+        </div>
+    </div>
+
+    <main class="login-page">
+        <form id="registerForm" class="login-card" autocomplete="off">
+            <h1>Create account</h1>
+
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" required />
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required />
+
+            <label for="password">Password</label>
+            <div class="pw-wrap">
+                <input id="password" name="password" type="password" placeholder="Password (min 6)" required />
+                <button type="button" class="pw-toggle" aria-label="Toggle password">Show</button>
+            </div>
+
+            <label for="confirm">Confirm password</label>
+            <input id="confirm" name="confirm" type="password" placeholder="Repeat password" required />
+
+            <button type="submit" class="primary-btn">Register</button>
+
+            <p class="muted">Sudah punya akun? <a href="login.html">Sign in</a></p>
+        </form>
+    </main>
+</body>
+</html>
