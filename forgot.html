@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Forgot Password - Myflick</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <div class="navbar">
+        <div class="brand">Myflick</div>
+        <div class="menu">
+            <a href="index.html">Home</a>
+            <a href="login.html">Login</a>
+        </div>
+    </div>
+
+    <main class="login-page">
+        <form id="forgotForm" class="login-card" autocomplete="off">
+            <h1>Reset Password</h1>
+
+            <p style="color:#ccc; font-size:0.95rem; margin:0 0 1rem 0; text-align:center;">
+                Masukkan email yang terdaftar. Kami akan mengirim instruksi untuk mereset password.
+            </p>
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required />
+
+            <button type="submit" class="primary-btn">Send Reset Link</button>
+
+            <p class="muted">Kembali ke <a href="login.html">login</a></p>
+        </form>
+    </main>
+</body>
+</html>

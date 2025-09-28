@@ -41,6 +41,7 @@ const form = document.getElementById('loginForm');
         });
 
 // register.//
+
         (function () {
             const form = document.getElementById('registerForm');
             const pw = document.getElementById('password');
@@ -93,3 +94,43 @@ const form = document.getElementById('loginForm');
                 }
             });
         })();
+
+//forgot
+   
+    (function () {
+        const form = document.getElementById('forgotForm');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = form.email.value.trim();
+            if (!email) return alert('Masukkan email.');
+
+            const btn = form.querySelector('button[type="submit"]');
+            btn.disabled = true;
+
+            try {
+                // Jika ada backend: kirim POST ke endpoint reset, misal /api/forgot
+                const res = await fetch('/api/forgot', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email })
+                });
+
+                if (res.ok) {
+                    alert('Jika email terdaftar, instruksi reset telah dikirim. Cek inbox (atau spam).');
+                    window.location.href = 'login.html';
+                } else {
+                    // fallback: baca pesan dari server kalau ada
+                    const data = await res.json().catch(() => ({}));
+                    alert(data.error || 'Gagal mengirim email. Coba lagi nanti.');
+                }
+            } catch (err) {
+                console.error(err);
+                // tanpa backend, beri petunjuk placeholder
+                alert('Tidak bisa terhubung ke server. (Demo) Jika ini demo, anggap link reset dikirim.');
+                window.location.href = 'login.html';
+            } finally {
+                btn.disabled = false;
+            }
+        });
+    })();
